@@ -5,4 +5,9 @@
 ```
 python python blockchain.py
 ```
-http://localhost:8080/say/hello
+
+现在访问：
+
+http://localhost:8080
+
+你在浏览器里就可以看到区块链的json结果了。

@@ -22,12 +22,6 @@ port = args.port
 app.run(debug=True,host='0.0.0.0',port=port)
 ```
 
-添加一个能获得最新区块的api
-
-添加一个获得全部区块的api
-
-添加一个从xx到xx的区块的api
-
 我们启动区块链
 
 ```
@@ -37,10 +31,44 @@ python blockchain.py -p 9090
 
 http://localhost:9090/blocks/all
 
+```json
+[
+  {
+    "data": "Genesis Block",
+    "hash": "74eaf9085aa458f99c724583e4314b361bae60bff74e4cb82f89c9ecaa671406",
+    "index": 0,
+    "previous_hash": 0,
+    "timestamp": 1533634910741
+  },
+  {
+    "data": "hello",
+    "hash": "41c28040287d26d66780f1175606fbf22d6a73c11355c64ae590b32d5e22d61b",
+    "index": 1,
+    "previous_hash": "74eaf9085aa458f99c724583e4314b361bae60bff74e4cb82f89c9ecaa671406",
+    "timestamp": 1533634910741
+  },
+  {
+    "data": "hi~",
+    "hash": "45aff7916c3410f9f93ac2a9dbcc24af33caa9120890ce0f1cabe02a3514b106",
+    "index": 2,
+    "previous_hash": "41c28040287d26d66780f1175606fbf22d6a73c11355c64ae590b32d5e22d61b",
+    "timestamp": 1533634910741
+  },
+  {
+    "data": "~",
+    "hash": "cd3d295b8c2c168830e24132f58073f2d39cee95fa6ae4d87a8be248fe8eaf3f",
+    "index": 3,
+    "previous_hash": "45aff7916c3410f9f93ac2a9dbcc24af33caa9120890ce0f1cabe02a3514b106",
+    "timestamp": 1533634910741
+  }
+]
+```
 
 访问最新的区块：
 
 http://localhost:9090/blocks/last
+
+你能得到类似的结果：
 
 ```json
 {
@@ -58,6 +86,8 @@ http://localhost:9090/blocks/last
 访问index从1～3的区块
 
 http://localhost:9090/blocks/1/3
+
+你能得到类似的结果：
 
 ```json
 [
@@ -88,6 +118,8 @@ http://localhost:9090/blocks/1/3
 访问index为2的区块
 
 http://localhost:9090/blocks/2
+
+你能得到类似的结果：
 
 ```json
 {
