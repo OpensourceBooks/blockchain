@@ -7,41 +7,20 @@
 pip install -r requirements.txt
 ```
 
+说明：每个文件夹里都是一个课程
 
-第0课，最简单的区块链
-
-```
-cd 0
-python blockchain.py
-```
-
-第1课，拥有index和时间戳的区块链
-
-```
-cd 1
-python blockchain.py
-```
-
-第2课、一个能在浏览器访问的区块链
-
-加入了flask做一个web站点
-
-```
-cd 2
-python python blockchain.py
-```
-http://localhost:8080/say/hello
+[第0课，最简单的区块链](0/readme.md)
 
 
-第3课、一个信息上链的功能
+[第1课，拥有index和时间戳的区块链](1/readme.md)
 
-```
-cd 3
-python python blockchain.py
-```
 
-http://localhost:8080/say/hello
+[第2课、一个能在浏览器访问的区块链](2/readme.md)
 
-改变hello为hi：
 
-http://localhost:8080/say/hi
+[第3课、一个信息上链的功能](3/readme.md)
+
+
+[第4课、增加一些条件查询的区块链](4/readme.md)
+
+[第5课、可以多节点同步的区块链](5/readme.md)（等待中）
