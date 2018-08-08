@@ -6,6 +6,12 @@ import json
 from flask import Flask, jsonify,render_template
 from argparse import ArgumentParser
 blockchain = []
+nodes=[]
+
+def add_node(node):
+    nodes.append(node)
+
+
 
 def hash(index,data,timestamp,previous_hash):
     sha = hasher.sha256()
