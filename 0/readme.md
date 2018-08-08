@@ -47,3 +47,11 @@ python blockchain.py
 解释一下，为什么叫做区块链，这个图，大家可以很直观地看到：
 
 ![blockchain](blockchain.svg)
+
+所谓区块链，不可篡改就在于，每个区块的hash值，都会被下一个区块引用和验证。如果某个区块的内容被人为更改了，那么该区块的hash值一定会变。而该区块的下一个区块引用了之前的hash值，现在值对不上了，因此区块就会出现错误。
+
+这一特性，就是不可篡改的原理。
+
+如下图所示，假设把block_1的内容给篡改了，那么block_1的hash就变化了。结果导致block_2的previous_hash和block_1的hash对不上，因此这个区块链就断裂了。
+
+![blockchain](blockchain_err.svg)
