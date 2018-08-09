@@ -30,7 +30,9 @@ pip install -r requirements.txt
 
 [第4课、增加一些条件查询的区块链](4/readme.md)
 
-[第5课、可以多节点同步的区块链](5/readme.md)（等待中）
+[第5课、可以多节点同步的区块链](5/readme.md)
+
+[第6课、验证节点](6/readme.md)（等待谱写）
 
 ### 欢迎讨论
 
