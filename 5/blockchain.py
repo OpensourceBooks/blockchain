@@ -86,6 +86,29 @@ def get_block_from_to(from_index,to_index):
 def get_all_block():
     return jsonify(blockchain)
 
+#查看区块链高度
+@app.route('/blocks/height',methods=['GET'])
+def get_block_height():
+    last_block = blockchain[len(blockchain)-1]
+    return jsonify(last_block["index"])
+
+#查看节点
+@app.route('/nodes',methods=['GET'])
+def get_get_nodes():
+    return jsonify(nodes)
+
+#添加节点
+@app.route('/nodes/add/<string:ip>/<int:port>',methods=['GET'])
+def add_nodes(ip,port):
+    nodes.append({"ip":ip,"port":port})
+    return jsonify(nodes)
+
+#同步区块
+@app.route('/blocks/sync',methods=['GET'])
+def blocks_sync():
+    
+    return jsonify(nodes)
+
 if __name__ == '__main__':
     make_a_genesis_block()
     add_a_block("hello")
