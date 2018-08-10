@@ -31,7 +31,11 @@ pip3 install -r requirements.txt
 
 ### 运行示例
 
-> 进入每个文件夹，运行 python3 blockchain.py
+进入每个文件夹，运行:
+
+```
+python3 blockchain.py
+```
 
 ### 简介
 
@@ -59,7 +63,9 @@ pip3 install -r requirements.txt
 
 [第5课、可以多节点同步的区块链](5/readme.md)
 
-[第6课、验证节点](6/readme.md)（等待谱写）
+[第6课、同步节点时进行验证](6/readme.md)
+
+[第7课、优化节点同步](7/readme.md)（等待谱写）
 
 ### 赞赏
 
