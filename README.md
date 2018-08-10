@@ -1,5 +1,15 @@
 # blockchain 开源教程：从零开始写区块链
 
+### 说明
+
+> 每个文件夹里都是一个课程，都有源码。
+
+> 本教程目前由我本人来写，因用业余时间，因此不能保证每天都有更新。
+
+> 为了保持简单，本教程用python做示例，大部分只用到 list、dict、json等对象，没有使用class。
+
+> 因水平有限，我尽力把这件事做好，欢迎大家指教。
+
 ### 安装
 
 ```
@@ -14,9 +24,17 @@ cd blockchain
 pip install -r requirements.txt
 ```
 
-### 说明
+### 简介
 
-> 每个文件夹里都是一个课程
+区块链是一种由区块组成的链式结构。每个区块有自己唯一的hash值，也有上一个区块的hash值。区块一个一个链接，形成区块链。
+
+![blockchain](0/blockchain.svg)
+
+如果所示，这是区块链中数据不可篡改的关键。假设把block_1的内容给篡改了，那么block_1的hash就变化了。结果导致block_2的previous_hash和block_1的hash对不上，因此这个区块链就断裂了。
+
+![blockchain](blockchain_err.svg)
+
+本教程用来说明，如何用python语言来写一个区块链。在我开始写之前，我知道市面上已经有了一些教程，而且也有国外大牛写好了python区块链。但是我依然要写这本书，而且要用开源的方式。
 
 ### 课程
 
@@ -34,8 +52,16 @@ pip install -r requirements.txt
 
 [第6课、验证节点](6/readme.md)（等待谱写）
 
+### 赞赏
+
+如果我的课程对你有帮助，欢迎赞赏。赞赏的钱将用于出版纸质书籍。
+
+<img src="images/wx.jpg" width="300" />
+
 ### 欢迎讨论
 
-* 微信：cr4fun
+微信：cr4fun
 
-* ![知识星球](images/xq.jpg)
+知识星球
+
+<img src="images/xq.jpg" width="300" />
