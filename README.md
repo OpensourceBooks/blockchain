@@ -21,8 +21,17 @@ cd blockchain
 ```
 
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
+
+### 必要环境
+
+* python3
+* python3-pip3
+
+### 运行示例
+
+> 进入每个文件夹，运行 python3 blockchain.py
 
 ### 简介
 
@@ -32,9 +41,9 @@ pip install -r requirements.txt
 
 如果所示，这是区块链中数据不可篡改的关键。假设把block_1的内容给篡改了，那么block_1的hash就变化了。结果导致block_2的previous_hash和block_1的hash对不上，因此这个区块链就断裂了。
 
-![blockchain](blockchain_err.svg)
+![blockchain](0/blockchain_err.svg)
 
-本教程用来说明，如何用python语言来写一个区块链。在我开始写之前，我知道市面上已经有了一些教程，而且也有国外大牛写好了python区块链。但是我依然要写这本书，而且要用开源的方式。
+本教程用来说明，如何用python语言来写一个区块链。在我开始写之前，我知道市面上已经有了一些教程，而且也有国外大牛写好了python区块链。但是我依然要写这本书，而且要用开源的方式。至于为什么用python，因为python使用方便，无需配置，而且方便用于各种IOT（物联网）设备上。
 
 ### 课程
 
@@ -54,14 +63,16 @@ pip install -r requirements.txt
 
 ### 赞赏
 
-如果我的课程对你有帮助，欢迎赞赏。赞赏的钱将用于出版纸质书籍。
+> 如果我的课程对你有帮助，欢迎赞赏。赞赏的钱将用于出版纸质书籍。
 
-<img src="images/wx.jpg" width="300" />
+> 赞赏时请备注你的github帐号，我会罗列出来。
 
-### 欢迎讨论
+<img src="images/wx.jpg" width="350" />
+
+### 交流
 
 微信：cr4fun
 
 知识星球
 
-<img src="images/xq.jpg" width="300" />
+<img src="images/xq.jpg" width="350" />
