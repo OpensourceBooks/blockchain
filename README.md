@@ -65,7 +65,7 @@ python3 blockchain.py
 
 [第6课、同步节点时进行验证](6/readme.md)
 
-[第7课、优化节点同步](7/readme.md)（等待谱写）
+[第7课、签名数据上链](7/readme.md)
 
 ### 赞赏
 
