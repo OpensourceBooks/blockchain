@@ -11,6 +11,13 @@
 python3 client.py -a n
 ```
 
+返回的信息类似：
+
+```
+address:Z/qsNWOAAWULpqvtM/OMHmJE+6PG0oPUsOMGk2ySYgrUB5noaZsD6b0NbbPgslr1cdninkqYKcJ+sx74/Mhn2A==
+
+private_key:196f72bf05e307458a0691ca73a2981d859e499ef9fc264183feddde5bd47217
+```
 ### 使用签名发消息上链
 
 ```
