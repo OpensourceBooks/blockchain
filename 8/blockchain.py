@@ -100,24 +100,44 @@ def validate_signature(public_key, signature, message):
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/',methods=['POST','GET'])
 def home():
-    return render_template('index.html')
+    if request.method == 'POST':
+        address=request.form.get('address')
 
-# # 得到私钥和公钥
-# @app.route('/get/key',methods=['GET'])
-# def get_key():
-#     sk = ecdsa.SigningKey.generate(curve=ecdsa.SECP256k1) #this is your sign (private key)
-#     private_key = sk.to_string().hex() #convert your private key to hex
-#     vk = sk.get_verifying_key() #this is your verification key (public key)
-#     public_key = vk.to_string().hex()
-#     public_key = base64.b64encode(bytes.fromhex(public_key))
-#     json={
-#         "public_key":public_key.decode(),
-#         "private_key":private_key
-#     }
-#     return jsonify(json)
+        out_logs=[]
+        in_logs=[]
 
+        for i in range(1,len(blockchain)):
+            block=blockchain[i]
+            data=block["data"]
+            if address == data["from"]:
+                out_logs.append(block)
+            if address == data["to"]:
+                in_logs.append(block)
+        return render_template('index.html',out_logs=out_logs,in_logs=in_logs)
+    if request.method == 'GET':
+        return render_template('index.html')
+
+#查找
+@app.route('/find',methods=['POST','GET'])
+def find():
+    if request.method == 'POST':
+        address=request.form.get('address')
+
+        out_logs=[]
+        in_logs=[]
+
+        for i in range(1,len(blockchain)):
+            block=blockchain[i]
+            data=block["data"]
+            if address == data["from"]:
+                out_logs.append(block)
+            if address == data["to"]:
+                in_logs.append(block)
+        return jsonify({"out":out_logs,"in":in_logs})
+    if request.method == 'GET':
+        return render_template('find.html')
 #信息上链
 @app.route('/post',methods=['POST'])
 def post():

@@ -18,11 +18,16 @@ import os
 @click.option('-memo', help='memo')
 @click.option('-pk', help='private_key')
 
-
-
-def client(host,port,my,to,memo,pk):
-    if (host and port and from and p):
-        print (send_transaction(f, t, m, p))
+def client(host,port,fa,ta,memo,pk):
+    if (host and port and fa and ta and memo and pk):
+        if len(pk) == 64:
+            signature, message = sign_ECDSA_msg(pk)
+            url = "http://{0}:{1}/post".format(host,port)
+            d = {"from_address": fa, "to_address": ta,"memo":memo,"signature":signature,"message":message}
+            r = requests.post(url, data=d)
+            print  (r.text)
+        else:
+            priint ("Wrong address or key length! Verify and try again.")
 
 ##
 
@@ -42,22 +47,6 @@ def sign_ECDSA_msg(private_key):
     signature = base64.b64encode(sk.sign(bmessage))
     return signature, message
 
-def send_transaction(from_address, to_address, memo, private_key):
-    if len(private_key) == 64:
-        signature, message = sign_ECDSA_msg(private_key)
-
-        url = "http://localhost:3333/post"
-
-        d = {"from_address": from_address, "to_address": to_address,"memo":memo,"signature":signature,"message":message}
-        r = requests.post(url, data=d)
-        return r.text
-    else:
-        return ("Wrong address or key length! Verify and try again.")
-
-# public_key,private_key = generate_ECDSA_keys()
-#
-# state = send_transaction(public_key, public_key, "hello", private_key)
-# print (state)
 
 if __name__ == '__main__':
     client()

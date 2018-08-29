@@ -15,8 +15,29 @@
     <a href="/blocks/last">last block</a>
     <a href="/blocks/height">block height</a>
 
+    <form class="" action="/" method="post">
+      <input type="text" name="address" placeholder="输入地址" value="">
+      <input type="submit" name="" value="搜索">
+    </form>
 
-    
+    <div class="">
+      <h2>发出 {{out_logs|length}} 条</h2>
+      {% for block in out_logs %}
+        <p>时间：{{block["timestamp"]}}</p>
+        <p>给地址：{{block["data"]["from"]}}</p>
+        <p>发送的信息：{{block["data"]["memo"]}}</p>
+      {% endfor %}
+    </div>
+
+    <div class="">
+      <h2>收到 {{in_logs|length}} 条</h2>
+      {% for block in in_logs %}
+        <p>时间：{{block["timestamp"]}}</p>
+        <p>收到来自于地址：{{block["data"]["to"]}}</p>
+        <p>收到的信息：{{block["data"]["memo"]}}</p>
+      {% endfor %}
+    </div>
+
 
   </body>
 </html>
