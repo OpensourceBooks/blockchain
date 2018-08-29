@@ -64,8 +64,7 @@ def make_a_block(index,timestamp,data,previous_hash):
     block={}
     block["index"]=index
     block["timestamp"]=timestamp
-    hash_data=hashlib.sha224("{0}".format(data).encode('utf-8')).hexdigest()
-    block["data"]=hash_data
+    block["data"]=data
     block["previous_hash"]=previous_hash
     block["hash"]=hash(index,data,timestamp,previous_hash)
     return block
@@ -80,7 +79,7 @@ def add_a_block(data):
 
     block = make_a_block(index,timestamp,data,previous_hash)
     blockchain.append(block)
-    return index,block["data"]
+    return index
 
 
 def make_a_genesis_block():
@@ -147,15 +146,16 @@ def post():
         from_address=request.form.get('from_address')
         to_address=request.form.get('to_address')
         memo=request.form.get('memo')
+        hash_data=hashlib.sha224("{0}".format(memo).encode('utf-8')).hexdigest()
         signature=request.form.get('signature')
         message=request.form.get('message')
         if validate_signature(from_address, signature, message):
             msg = {
                 "from": from_address,
                 "to": to_address,
-                "memo": memo
+                "hash_data": hash_data
             }
-            block_index,hash_data = add_a_block(msg)
+            block_index = add_a_block(msg)
             return jsonify({"index":block_index,"hash":hash_data})
         else:
             return jsonify("error")
