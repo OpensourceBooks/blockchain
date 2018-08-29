@@ -25,7 +25,7 @@
       {% for block in out_logs %}
         <p>时间：{{block["timestamp"]}}</p>
         <p>给地址：{{block["data"]["from"]}}</p>
-        <p>发送的信息hash：{{block["data"]["memo"]}}</p>
+        <p>发送的信息hash：{{block["data"]["hash_data"]}}</p>
       {% endfor %}
     </div>
 
@@ -34,7 +34,7 @@
       {% for block in in_logs %}
         <p>时间：{{block["timestamp"]}}</p>
         <p>收到来自于地址：{{block["data"]["to"]}}</p>
-        <p>收到的信息hash：{{block["data"]["memo"]}}</p>
+        <p>收到的信息hash：{{block["data"]["hash_data"]}}</p>
       {% endfor %}
     </div>
 
