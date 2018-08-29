@@ -1,3 +1,4 @@
 flask
 ecdsa
 requests
+python-jsonrpc
