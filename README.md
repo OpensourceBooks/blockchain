@@ -75,6 +75,7 @@ python3 blockchain.py
 
 [第8课、区块链浏览器](8/readme.md)
 
+[第9课、hash上链](9/readme.md)
 ### 赞赏
 
 > 如果我的课程对你有帮助，欢迎赞赏。赞赏的钱将用于出版纸质书籍。
