@@ -25,9 +25,9 @@ def client(host,port,fa,ta,memo,pk):
             url = "http://{0}:{1}/post".format(host,port)
             d = {"from_address": fa, "to_address": ta,"memo":memo,"signature":signature,"message":message}
             r = requests.post(url, data=d)
-            print  (r.text)
+            print(r.text)
         else:
-            priint ("Wrong address or key length! Verify and try again.")
+            print("Wrong address or key length! Verify and try again.")
 
 ##
 
