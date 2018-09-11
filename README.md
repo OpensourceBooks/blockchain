@@ -74,7 +74,7 @@ python3 blockchain.py
 [第7课、签名数据上链](7/readme.md)
 
 [第8课、区块链浏览器](8/readme.md)
-
+    * 8.1 在8的版本上进行了更改，结构更扁平化，为了日后做kv数据的持久化。
 [第9课、hash上链](9/readme.md)
 ### 赞赏
 
