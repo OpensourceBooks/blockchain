@@ -25,8 +25,41 @@ class BlockchainHelper:
         self.blockchain = []
         self.nodes = []
 
-    def get_blocks(self):
+    def json(self,blocks):
+        blocks_json = []
+        for b in blocks:
+            block = {}
+            block["index"]=b.index
+            block["timestamp"]=b.timestamp
+            block["consignor"]=b.consignor
+            block["consignee"]=b.consignee
+            block["memo"]=b.memo
+            block["previous_hash"]=b.previous_hash
+            blocks_json.append(block)
+        return blocks_json
+
+    def get_blocks_all(self):
         return self.blockchain
+
+    def get_blocks(self,min_index,max_index):
+        if min_index and max_index:
+            blocks = []
+            for block in self.blockchain:
+                if block.index > min_index and block.index < max_index:
+                    blocks.append(block)
+            return blocks
+        else:    
+            return self.blockchain
+    
+    def get_blocks_with(self,index):
+        if len(self.blockchain)>index:
+            return [self.blockchain[index]]
+        else:
+            return []
+
+    def get_block_last(self):
+        last_block = self.blockchain[len(self.blockchain)-1]
+        return [last_block]
 
     #验证区块链
     def validate(self):
@@ -66,8 +99,8 @@ class BlockchainHelper:
 
     #返回自身区块链高度
     def get_height(self):
-        last_block = self.blockchain[len(blockchain)-1]
-        last_block_index = last_block["index"]
+        last_block = self.blockchain[len(self.blockchain)-1]
+        last_block_index = last_block.index
         return last_block_index
 
 

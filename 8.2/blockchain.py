@@ -11,7 +11,7 @@ import requests
 import base64
 import ecdsa
 
-from bc import *
+from blockchain_helper import *
 
 bch = BlockchainHelper()
 
@@ -25,6 +25,8 @@ def home():
 
         out_logs=[]
         in_logs=[]
+
+        blockchain = bch.get_blocks()
 
         for i in range(1,len(blockchain)):
             block=blockchain[i]
@@ -53,16 +55,11 @@ def post():
 
 @app.route('/blocks/last',methods=['GET'])
 def get_last_block():
-    last_block = blockchain[len(blockchain)-1]
-    return jsonify(last_block)
+    return jsonify(bch.json(bch.get_block_last()))
 
 @app.route('/blocks/<int:index>',methods=['GET'])
 def get_block(index):
-    if(len(blockchain)>index):
-        block = blockchain[index]
-        return jsonify(block)
-    else:
-        return jsonify({"error":"noindex"})
+    return jsonify(bch.json(bch.get_blocks_with(index)))
 
 @app.route('/blocks/<int:from_index>/<int:to_index>',methods=['GET'])
 def get_block_from_to(from_index,to_index):
@@ -79,17 +76,16 @@ def get_block_from_to(from_index,to_index):
 @app.route('/validate',methods=['GET'])
 def blocks_validate():
 
-    return jsonify(validate(blockchain))
+    return jsonify(validate(bch.get_blocks()))
 
 @app.route('/blocks/all',methods=['GET'])
 def get_all_block():
-    return list(bch.get_blocks())
+    return jsonify(bch.json(bch.get_blocks_all()))
 
 #查看区块链高度
 @app.route('/blocks/height',methods=['GET'])
 def get_block_height():
-    last_block = blockchain[len(blockchain)-1]
-    return jsonify(last_block["index"])
+    return jsonify(bch.get_height())
 
 #查看节点
 @app.route('/nodes',methods=['GET'])
