@@ -165,7 +165,7 @@ def get_last_block():
 
 @app.route('/blocks/<int:index>',methods=['GET'])
 def get_block(index):
-    if(len(blockchain)>=index):
+    if(len(blockchain)>index):
         block = blockchain[index]
         return jsonify(block)
     else:
