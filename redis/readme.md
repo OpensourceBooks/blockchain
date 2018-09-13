@@ -27,3 +27,13 @@ python3 show_all_blockchain.py
 ```
 python3 remove_all.py
 ```
+
+### RESTful API
+
+```
+python3 blockchain.py -p3333
+```
+
+```
+http://localhost:3333/api/blocks/all
+```
