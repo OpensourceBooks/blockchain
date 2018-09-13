@@ -3,7 +3,7 @@
 import hashlib as hasher
 import redis
 from time import time
-pool = redis.ConnectionPool(host='127.0.0.1', port=6379)  
+pool = redis.ConnectionPool(host='127.0.0.1', port=6379 ,decode_responses=True)  
 r = redis.Redis(connection_pool=pool)
 
 def hash(height,timestamp,data,from_address,to_address,previous_hash):
@@ -32,7 +32,7 @@ if (r.get("block_height")):
     to_address = "0"
     # 上一个hash
     last_block = r.hgetall("block_{0}".format(block_height))
-    previous_hash = last_block[b"this_hash"].decode('utf-8')
+    previous_hash = last_block["this_hash"]
     # 自身hash
     this_hash = hash(height,timestamp,data,from_address,to_address,previous_hash)
 
