@@ -47,11 +47,11 @@ def post():
         memo=request.form.get('memo')
         signature=request.form.get('signature')
         message=request.form.get('message')
-        if validate_signature(consignor, signature, message):
-            add_a_block(consignor,consignee,memo)
-            return jsonify(blockchain)
+        if bch.validate_signature(consignor, signature, message):
+            res = bch.add_a_block(consignor,consignee,memo)
+            return res
         else:
-            return jsonify("error")
+            return jsonify({"error":"err"})
 
 @app.route('/blocks/last',methods=['GET'])
 def get_last_block():
@@ -76,7 +76,7 @@ def get_block_from_to(from_index,to_index):
 @app.route('/validate',methods=['GET'])
 def blocks_validate():
 
-    return jsonify(validate(bch.get_blocks()))
+    return jsonify(bch.validate(bch.get_blocks()))
 
 @app.route('/blocks/all',methods=['GET'])
 def get_all_block():
@@ -142,7 +142,6 @@ def blocks_sync():
 
 if __name__ == '__main__':
     bch.make_a_genesis_block()
-
     parser = ArgumentParser()
     parser.add_argument('-p', '--port', default=8080, type=int, help='port to listen on')
     args = parser.parse_args()

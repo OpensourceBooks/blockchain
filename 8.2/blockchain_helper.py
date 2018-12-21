@@ -110,11 +110,12 @@ class BlockchainHelper:
         return sha.hexdigest()
 
     def add_a_block(self,consignor,consignee,memo):
-        last_block = self.blockchain[len(blockchain)-1]
-        index=last_block["index"]+1
+        last_block = self.blockchain[len(self.blockchain)-1]
+        index = last_block.index
         timestamp=int(round(time() * 1000))
-        previous_hash=last_block["hash"]
+        previous_hash=last_block.hash
         self.blockchain.append(Block(index,timestamp,consignor,consignee,memo,previous_hash))
+        return "ok"
 
     def make_a_genesis_block(self):
         index=0
